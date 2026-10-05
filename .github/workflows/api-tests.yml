@@ -1,0 +1,21 @@
+name: CSharp API tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: dotnet restore tests/ApiTests/ApiTests.csproj
+      - run: dotnet test tests/ApiTests/ApiTests.csproj --no-restore --logger "trx;LogFileName=api-tests.trx" --results-directory TestResults
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-test-evidence
+          path: |
+            TestResults/
+            **/artifacts/

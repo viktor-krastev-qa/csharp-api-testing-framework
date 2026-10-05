@@ -60,7 +60,7 @@ Validation status: [docs/VALIDATION.md](docs/VALIDATION.md). Local Windows execu
 - [Windows HTML report](examples/local/report.html) — download and open.
 - [Windows TRX evidence](examples/local/api-tests.trx).
 
-GitHub Actions validation is pending.
+GitHub Actions validation: passed.
 
 ## Limits
 The API is a controlled demo authored alongside its tests, not an independent production service. No authentication, authorization, database, persistence, pagination, TLS deployment, performance/SLA testing or third-party integration is implemented. The store is isolated per application instance and guarded with a lock, but concurrent-load correctness is not claimed by these sequential tests. Request/response evidence uses synthetic data. No real credentials or personal records are needed.
